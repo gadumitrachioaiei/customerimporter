@@ -14,6 +14,7 @@ import (
 	"sort"
 	"sync/atomic"
 
+	"github.com/gadumitrachioaiei/cs/debug"
 	"github.com/pkg/errors"
 )
 
@@ -25,6 +26,7 @@ type Domain struct {
 // ImportEmailDomain produces a list of email domains with number of emails for that domain
 // it is the caller responsibility to close any open files
 func ImportEmailDomain(in io.Reader) ([]Domain, error) {
+	debug.ShowBytes(1.9, 8, debug.Binary)
 	domainsMap, err := importEmailDomain(in, -1)
 	if err != nil {
 		return nil, err
